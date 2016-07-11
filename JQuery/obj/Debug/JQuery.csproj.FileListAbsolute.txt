@@ -1,0 +1,6 @@
+C:\Users\Ashen\Source\Repos\JQuery\JQuery\bin\JQuery.dll.config
+C:\Users\Ashen\Source\Repos\JQuery\JQuery\bin\JQuery.dll
+C:\Users\Ashen\Source\Repos\JQuery\JQuery\bin\JQuery.pdb
+C:\Users\Ashen\Source\Repos\JQuery\JQuery\obj\Debug\JQuery.csprojResolveAssemblyReference.cache
+C:\Users\Ashen\Source\Repos\JQuery\JQuery\obj\Debug\JQuery.dll
+C:\Users\Ashen\Source\Repos\JQuery\JQuery\obj\Debug\JQuery.pdb
