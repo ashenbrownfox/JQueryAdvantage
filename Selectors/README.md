@@ -90,3 +90,99 @@ Example : If you use $(document).ready() instead of $(window).load() the height 
 </html>
 ```
 ###MOre to Come
+
+## What are jQuery selectors
+
+One of the most important concept in jQuery is selectors. jQuery selectors allow you to select and manipulate HTML elements. 
+
+Different selectors in jQuery
+
+jQuery selectors allow you to select html elements in the DOM by
+
+1. Element ID
+2. Element Tag Name
+3. Element Class Name
+4. Element attribute
+5. Element Attribute values and many more 
+
+Id selector in jquery
+To find an HTML element by ID, use the jQuery #id selector 
+
+Example : The following example finds button with ID button1 and attaches the click event handler.
+```
+<html>
+<head>
+    <title></title>
+    <script src="jquery-1.11.2.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#button1').click(function () {
+                alert('jQuery Tuorial');
+            });
+        });
+    </script>
+</head>
+<body>
+    <input id="button1" type="button" value="Click Me" />
+</body>
+</html>
+
+Changes the background colour of the button to yellow
+$(document).ready(function () {
+    $('#button1').css('background-color', 'yellow');
+});
+```
+
+###Important points to remember about jQuery #id selector 
+
+1. jQuery #id selector uses the JavaScript document.getElementById() function 
+
+2. jQuery #id selector is the most efficient among all jQuery selectors. If you know the id of an element that you want to find, then always use the #id selector. 
+
+3. HTML element IDs must be unique on the page. jQuery #id selector returns only the first element, if you have 2 or more elements with the same ID.
+
+```
+<html>
+<head>
+    <title></title>
+    <script src="jquery-1.11.2.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#button1').css('background-Color', 'yellow');
+        });
+    </script>
+</head>
+<body>
+    <input id="button1" type="button" value="Click Me" />
+    <input id="button1" type="button" value="Click Button" />
+</body>
+</html>
+```
+
+4. JavaScript's document.getElementById() function throws an error if the element with the given id is not found, where as jQuery #id selector will not throw an error. To check if an element is returned by the #id selector use length property. 
+
+```
+<html>
+<head>
+    <title></title>
+    <script src="jquery-1.11.2.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if ($('#button1').length > 0) {
+                alert('Element found')
+            }
+            else {
+                alert('Element not found')
+            }
+        });
+    </script>
+</head>
+<body>
+    <input id="button1" type="button" value="Click Me" />
+</body>
+</html>
+```
+
+5. JavaScript's document.getElementById() and jQuery(#id) selector are not the same. document.getElementById() returns a raw DOM object where as jQuery('#id') selector returns a jQuery object that wraps the DOM object and provides jQuery methods. This is the reason you are able to call jQuery methods like css(), click() on the object returned by jQuery. To get the underlying DOM object from a jQuery object write $('#id')[0]
+
+6. document.getElementById() is faster than jQuery('#id') selector. Use document.getElementById() over jQuery('#id') selector unless you need the extra functionality provided by the jQuery object. 
