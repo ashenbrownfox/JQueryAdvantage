@@ -186,3 +186,206 @@ $(document).ready(function () {
 5. JavaScript's document.getElementById() and jQuery(#id) selector are not the same. document.getElementById() returns a raw DOM object where as jQuery('#id') selector returns a jQuery object that wraps the DOM object and provides jQuery methods. This is the reason you are able to call jQuery methods like css(), click() on the object returned by jQuery. To get the underlying DOM object from a jQuery object write $('#id')[0]
 
 6. document.getElementById() is faster than jQuery('#id') selector. Use document.getElementById() over jQuery('#id') selector unless you need the extra functionality provided by the jQuery object. 
+
+
+##Jquery Element Seletor
+
+Syntax : $(element)
+
+$('td') // Selects all td elements
+$('div a') // Select all anchor elements that are descendants of div element
+$('div, span, a') // Selects all div, span and anchor elements
+
+Alerts the total count of td elements on the page
+```
+<html>
+<head>
+    <title></title>
+    <script src="jquery-1.11.2.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            alert($('td').length);
+        });
+    </script>
+</head>
+<body>
+    <table style="border:1px solid black; border-collapse:collapse">
+        <tr>
+            <td>C#</td>
+            <td>ASP.NET</td>
+            <td>SQL Server</td>
+        </tr>
+        <tr>
+            <td>ADO.NET</td>
+            <td>jQuery</td>
+            <td>JavaScript</td>
+        </tr>
+        <tr>
+            <td>AJAX</td>
+            <td>CSS</td>
+            <td>HTML</td>
+        </tr>
+        <tr>
+            <td>VB</td>
+            <td>Dot NET</td>
+            <td>Visual C++</td>
+        </tr>
+        <tr>
+            <td>Oracle</td>
+            <td>Java</td>
+            <td>J2EE</td>
+        </tr>
+    </table>
+    <br /><br />
+    <div>
+        DIV 1
+        <br />
+        <a href="http://pragimtech.com">PragimTech</a>
+    </div>
+    <br /><br />
+    <a href="http://google.com">Google</a>
+    <br /><br />
+    <div>DIV 2</div>
+    <br /><br />
+    <span>SPAN 1</span>
+    <br /><br />
+    <div>DIV 3</div>
+</body>
+</html>
+```
+
+Selects all the tr elements on the page and changes their background colour to red
+```
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('tr').css('background-Color', 'red');
+    });
+</script>
+
+Alerts the HTML content of the table
+<script type="text/javascript">
+    $(document).ready(function () {
+        alert($('table').html());
+    });
+</script>
+
+Alerts the HTML content of each table row
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('table tr').each(function () {
+            alert($(this).html());
+        });
+    });
+</script>
+```
+
+Select and changes the background colour of all the div, span and anchor elements
+```
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('div, span, a').css('background-Color', 'yellow');
+    });
+</script>
+```
+Select all anchor elements that are descendants of div element
+```
+<html>
+<head>
+    <title></title>
+    <script src="jquery-1.11.2.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('div a').css('background-Color', 'yellow');
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <a href="http://pragimtech.com">PragimTech</a>
+    </div>
+    <br />
+    <a href="http://microsoft.com">Microsoft</a>
+</body>
+</html>
+```
+Changes the background color of even rows to gray and odd rows to yellow on both the tables.
+```
+<html>
+<head>
+    <title></title>
+    <script src="jquery-1.11.2.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('tr:even').css('background-Color', 'gray');
+            $('tr:odd').css('background-Color', 'yellow');
+        });
+    </script>
+</head>
+<body>
+    <table id="table1" border="1">
+        <tr>
+            <td>C#</td>
+            <td>ASP.NET</td>
+            <td>SQL Server</td>
+        </tr>
+        <tr>
+            <td>ADO.NET</td>
+            <td>jQuery</td>
+            <td>JavaScript</td>
+        </tr>
+        <tr>
+            <td>AJAX</td>
+            <td>CSS</td>
+            <td>HTML</td>
+        </tr>
+        <tr>
+            <td>VB</td>
+            <td>Dot NET</td>
+            <td>Visual C++</td>
+        </tr>
+        <tr>
+            <td>Oracle</td>
+            <td>Java</td>
+            <td>J2EE</td>
+        </tr>
+    </table>
+    <br />
+    <table id="table2" border="1">
+        <tr>
+            <td>Mark</td>
+            <td>Mary</td>
+            <td>Mike</td>
+        </tr>
+        <tr>
+            <td>John</td>
+            <td>Jade</td>
+            <td>Joy</td>
+        </tr>
+        <tr>
+            <td>Rob</td>
+            <td>Roy</td>
+            <td>Rachel</td>
+        </tr>
+        <tr>
+            <td>Sam</td>
+            <td>Sara</td>
+            <td>Smith</td>
+        </tr>
+        <tr>
+            <td>Todd</td>
+            <td>Tom</td>
+            <td>Theo</td>
+        </tr>
+    </table>
+</body>
+</html>
+```
+To change the background color of even rows to gray and odd rows to yellow just for one of the table, use #id selector along with element selector.
+```
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#table1 tr:even').css('background-Color', 'gray');
+        $('#table1 tr:odd').css('background-Color', 'yellow');
+    });
+</script>
+```

@@ -1,5 +1,5 @@
-# JQueryAdvantage
-## How to Contribute
+# Introduction to JQuery
+###  How to Contribute
 
 1. Fork it!
 2. Commit.
@@ -172,4 +172,38 @@ Example : If you use $(document).ready() instead of $(window).load() the height 
 </body>
 </html>
 ```
-###MOre to Come
+## Benefits of using a CDN
+
+### What is a CDN?
+
+CDN stands for Content Delivery Network. A CDN is a system of distributed servers that hosts resources such as images, CSS, JavaScript files etc. Companies like Microsoft, Google, Yahoo etc have a free public CDN from which we can load jQuery instead of hosting it on our own web server.
+
+[Microsoft jQuery CDN](http://www.asp.net/ajax/cdn#jQuery_Releases_on_the_CDN_0)
+
+[Google jQuery CDN](https://developers.google.com/speed/libraries/devguide#jquery/)
+
+###Advantages of a CDN
+1. Distributed CDN servers : The jQuery file can be downloaded from the CDN server that is closest to the user 
+
+2. Browser Caching : jQuery is used on many popular websites. If a user has already visited a webpage that uses jQuery from a CDN, and then if he arrives at your page, the jQuery file has already been cached by the browser so there is no need to download it again.
+
+3. Parallel Downloads : There is a browser limit on how many files can be concurrently downloaded from a given domain. This number varies from browser to browser. For example, if the browser allows only 2 concurrent downloads from a given domain, the 3rd download is blocked until one of the previous files has been fully downloaded. Since the jQuery file is on a CDN, it is being downloaded from a different domain. So this means the browser allows another 2 parallel downloads from the CDN server.
+
+4. Reduced server load : The HTTP request for jQuery file is handled by the CDN server, so the load on your web server is reduced. This also means there is a saving on your website bandwidth consumption which in turn will reduce your hosting cost.
+
+###Disadvantages of using a CDN
+Your clients may block the CDN. So you may have to request your clients to whitelist the CDN.
+
+What if the required jQuery file cannot be downloaded from CDN
+Let assume that, the CDN is down or because of some network issue we are not able to download jQuery from CDN. In this case we will have to fallback to use jQuery file that we hosted on our own server. 
+
+Here is the code that falls back to use jQuery on your web server, if it can't be downloaded from CDN. If jQuery is successfully downloaded, jQuery property is added to the window object. If this property is not found then jQuery is not downloaded. So in this case we are writing a script tag to fallback to the local jQuery file.
+```
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.3.min.js"></script>
+<script>
+    window.jQuery || document.write("<script src='Scripts/jquery-2.1.3.js'><\/script>");
+</script>
+```
+
+ 
+
